@@ -104,5 +104,5 @@ def compute_prototype_features(support_set):
     # Make sure to return a torch.Tensor
     return torch.zeros((len(support_set), 640), device=DEVICE)  # Example placeholder
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# if __name__ == '__main__':
+#     app.run(debug=True)
