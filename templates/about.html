@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Few-Shot Learning Model for Lung Cancer Detection</title>
+    <style>
+      /* Reset some default styles */
+      :root {
+        --primary-color: rgb(179, 190, 196); /* Main color for buttons and links */
+        --secondary-color: #e74c3c; /* Accent color for special elements */
+        --background-color: #b4d5e7; /* Background color for the page */
+        --text-color: white; /* Main text color */
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        font-family: "Arial", sans-serif;
+        margin: 20px;
+        background-color: var(--background-color);
+        color: var(--text-color);
+      }
+
+      nav {
+        display: flex;
+        justify-content: center;
+        background-color: #3498db;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        font-weight: bold;
+      }
+
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        padding: 14px 20px;
+        display: inline-block;
+      }
+
+      nav a:hover {
+        background-color: #043346;
+      }
+
+      h1 {
+        text-align: center;
+        color: #3498db;
+      }
+
+      div {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      h3 {
+        color: #3498db;
+        font-size: 1.5em;
+        margin-bottom: 15px;
+      }
+
+      p {
+        color: #555;
+        line-height: 1.6;
+        font-size: 1.2em;
+      }
+
+      ol {
+        list-style: none;
+      }
+
+      ol li {
+        margin-bottom: 15px;
+      }
+
+      /* Responsive Design */
+      @media only screen and (max-width: 600px) {
+        nav {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        nav a {
+          margin-bottom: 10px;
+        }
+
+        div {
+          padding: 15px;
+        }
+        img{
+            height: 500px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+    </nav>
+    <h1>About Few-Shot Learning Model for Lung Cancer Detection</h1>
+    <div>
+      <h3>Introduction</h3>
+      <p>
+        Welcome to the Few-Shot Learning Model for Lung Cancer Detection! Our
+        model is designed to assist in the detection of lung cancer using
+        machine learning techniques.
+      </p>
+    </div>
+
+    <div>
+        <img src="static\images\prototypical network.png" alt="Prototypical Network Image">
+    </div>
+
+    <div>
+      <h3>Few-Shot Learning</h3>
+      <p>
+        Few-shot learning is a specialized area within machine learning that
+        addresses scenarios where the model is trained on a very limited number
+        of examples for each class. Few-shot learning allows our model to make
+        accurate predictions even with limited training data.
+      </p>
+    </div>
+
+    <div>
+      <h3>Prototypical Networks</h3>
+      <p>
+        Our model is built upon Prototypical Networks, a cutting-edge few-shot
+        learning approach. Prototypical Networks leverage the mean of support
+        features for each class (prototypes) to predict classification scores
+        for query images based on their euclidean distance to the prototypes.
+        This approach has shown promising results in scenarios with limited
+        labeled data.
+      </p>
+    </div>
+
+    <div>
+      <h3>ResNet12 Architecture</h3>
+      <p>
+        The backbone of our model is ResNet12, a specialized variant of the
+        ResNet architecture. ResNet12 incorporates deep residual blocks, skip
+        connections, and global average pooling. These features enable effective
+        training of deep networks, making ResNet12 suitable for capturing
+        complex patterns in medical images relevant to lung cancer detection.
+      </p>
+    </div>
+
+    <div>
+      <h3>How It Works</h3>
+      <ol>
+        <li>
+          <h3>Feature Extraction:</h3>
+          <p>
+            The model extracts features from both support and query images,
+            capturing essential information.
+          </p>
+        </li>
+        <li>
+          <h3>Prototype Computation:</h3>
+          <p>
+            Prototypes (class means) are computed based on support features,
+            representing characteristic features of each class.
+          </p>
+        </li>
+        <li>
+          <h3>Distance Calculation:</h3>
+          <p>
+            For query images, the model calculates the euclidean distance to
+            prototypes to determine class predictions.
+          </p>
+        </li>
+        <li>
+          <h3>Predictions:</h3>
+          <p>
+            The final step involves predicting whether a given image is
+            cancerous or normal based on the computed distances.
+          </p>
+        </li>
+      </ol>
+    </div>
+  </body>
+</html>

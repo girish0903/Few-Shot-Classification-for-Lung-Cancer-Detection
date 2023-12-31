@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Few-Shot Learning Model for Lung Cancer Detection</title>
+    <style>
+      nav {
+        display: flex;
+        justify-content: center;
+        background-color: #3498db;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        font-weight: bold;
+      }
+
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        padding: 14px 20px;
+        display: inline-block;
+      }
+
+      nav a:hover {
+        background-color: #043346;
+      }
+      .loading-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.7);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+
+      .loading-spinner {
+        border: 6px solid #f3f3f3;
+        border-top: 6px solid #3498db;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      body {
+        font-family: "Arial", sans-serif;
+        text-align: center;
+        margin: 20px;
+        background-color: #b4d5e7;;
+      }
+
+      h1 {
+        color: #3498db;
+      }
+
+      form {
+        margin-top: 20px;
+      }
+
+      label {
+        background-color: #3498db;
+        color: #fff;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button {
+        background-color: #d44810;
+        color: #ffffff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: bold;
+      }
+
+      button:hover {
+        cursor: pointer;
+        background-color: #324e3e;
+        transition: 500ms;
+        font-weight: bold;
+        color: #fff;
+      }
+
+      img {
+        height: 256px;
+        max-width: 256px;
+        margin-top: 20px;
+        border: 1px solid #320bb4;
+        border-radius: 5px;
+      }
+
+      .result {
+        margin-top: 20px;
+        font-weight: bold;
+        font-size: 30px;
+      }
+
+      .normal {
+        color: #2ecc71;
+        font-weight: bold;
+        font-size: 25px;
+      }
+
+      .cancerous {
+        color: #e74c3c;
+        font-weight: bold;
+        font-size: 25px;
+      }
+      select {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+    </nav>
+    <h1>Few-Shot Learning Model for Lung Cancer Detection</h1>
+    <div class="description">
+      <p>Select any image from the list to see the prediction</p>
+    </div>
+    <form action="/predict" method="post" onsubmit="showLoader()">
+      <label for="sample-images">Choose a sample image:</label>
+      <select name="sample-images" id="sample-images">
+        {% for sample_image in sample_images %}
+        <option value="{{ sample_image }}">{{ sample_image }}</option>
+        {% endfor %}
+      </select>
+
+      <button type="submit">Submit</button>
+      <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+      </div>
+    </form>
+
+    {% if result %}
+    <h2>Prediction Result</h2>
+    <img src="{{ result.image_path }}" alt="Selected Image" />
+    <p class="{{ result.label_class }}">Class: {{ result.label }}</p>
+    {% endif %}
+
+    <script>
+      function showLoader() {
+        var overlay = document.getElementById("loadingOverlay");
+        overlay.style.display = "flex"; // Show overlay
+      }
+    </script>
+  </body>
+</html>
