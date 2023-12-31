@@ -1,2 +1,6 @@
 Flask
 Gunicorn
+torch
+torchvision
+Pillow
+scipy
