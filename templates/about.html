@@ -3,14 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Few-Shot Learning Model for Lung Cancer Detection</title>
+    <title>Few-Shot Learning Model for Pneumonia Detection</title>
     <style>
       /* Reset some default styles */
       :root {
-        --primary-color: rgb(179, 190, 196); /* Main color for buttons and links */
+        --primary-color: rgb(
+          179,
+          190,
+          196
+        ); /* Main color for buttons and links */
         --secondary-color: #e74c3c; /* Accent color for special elements */
         --background-color: #b4d5e7; /* Background color for the page */
-        --text-color: white; /* Main text color */
+        --text-color: #333; /* Main text color */
       }
 
       body {
@@ -36,6 +40,7 @@
         text-decoration: none;
         padding: 14px 20px;
         display: inline-block;
+        transition: background-color 0.3s ease;
       }
 
       nav a:hover {
@@ -45,6 +50,7 @@
       h1 {
         text-align: center;
         color: #3498db;
+        margin-bottom: 30px;
       }
 
       div {
@@ -89,8 +95,11 @@
         div {
           padding: 15px;
         }
-        img{
-            height: 500px;
+        img {
+          height: 500px;
+          max-width: 100%;
+          object-fit: cover;
+          border-radius: 10px;
         }
       }
     </style>
@@ -100,18 +109,21 @@
       <a href="/">Home</a>
       <a href="/about">About</a>
     </nav>
-    <h1>About Few-Shot Learning Model for Lung Cancer Detection</h1>
+    <h1>About Few-Shot Learning Model for Pneumonia Detection</h1>
     <div>
       <h3>Introduction</h3>
       <p>
-        Welcome to the Few-Shot Learning Model for Lung Cancer Detection! Our
-        model is designed to assist in the detection of lung cancer using
-        machine learning techniques.
+        Welcome to the Few-Shot Learning Model for Pneumonia Detection! Our
+        model is designed to assist in the detection of Pneumonia using machine
+        learning techniques.
       </p>
     </div>
 
     <div>
-        <img src="static\images\prototypical network.png" alt="Prototypical Network Image">
+      <img
+        src="static\images\prototypical network.png"
+        alt="Prototypical Network Image"
+      />
     </div>
 
     <div>
@@ -143,7 +155,7 @@
         ResNet architecture. ResNet12 incorporates deep residual blocks, skip
         connections, and global average pooling. These features enable effective
         training of deep networks, making ResNet12 suitable for capturing
-        complex patterns in medical images relevant to lung cancer detection.
+        complex patterns in medical images relevant to Pneumonia detection.
       </p>
     </div>
 
@@ -174,8 +186,8 @@
         <li>
           <h3>Predictions:</h3>
           <p>
-            The final step involves predicting whether a given image is
-            cancerous or normal based on the computed distances.
+            The final step involves predicting a given image's class based on
+            the computed distances.
           </p>
         </li>
       </ol>
