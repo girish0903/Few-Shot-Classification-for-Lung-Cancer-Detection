@@ -1,1 +1,1 @@
-# Few-Shot-Classification-for-Lung-Cancer-Detection
+# Few-Shot-Classification-for-Pneumonia-Detection
